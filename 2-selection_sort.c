@@ -16,7 +16,8 @@ void selection_sort(int *array, size_t size)
 
 	if (!array || !size)
 		return;
-		x = 0;
+	
+	x = 0;
 	while (x < size - 1)
 	{
 		for (k = size - 1, y = x + 1; k > x; k--)
