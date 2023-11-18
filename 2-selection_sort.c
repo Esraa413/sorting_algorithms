@@ -4,8 +4,8 @@
 
 /**
  * selection_sort-function that sorts an array of integers in,
- * ascending order using the Selection sort algorithm 
- * @array: after each time you swap two elements 
+ * ascending order using the Selection sort algorithm
+ * @array: after each time you swap two elements
  * @size: size of the array
  */
 
@@ -16,7 +16,6 @@ void selection_sort(int *array, size_t size)
 
 	if (!array || !size)
 		return;
-	
 	x = 0;
 	while (x < size - 1)
 	{
