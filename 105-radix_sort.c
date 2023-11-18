@@ -41,11 +41,11 @@ void radix_sort(int *array, size_t size)
 
 void counting_sort(int *array, size_t size, int exp)
 {
-	int count_arr[10] = {0};
-	int *out_arr = malloc(sizeof(int) * size);
+	int count_arr[10] = {0}, *out_arr;
 	int x, y;
 	size_t j, k;
 
+	out_arr = malloc(sizeof(int) * size);
 	j = 0;
 	for (j < size)
 	{
@@ -69,5 +69,5 @@ void counting_sort(int *array, size_t size, int exp)
 	       array[k] = out_arr[k];
 	       k++;
        }
-free(out_arr);
+       free(out_arr);
 }	
