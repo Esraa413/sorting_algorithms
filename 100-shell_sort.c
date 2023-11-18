@@ -6,28 +6,31 @@
  * @array: array of integers to be sorted
  * @size: amount of elements in array
  */
+
 void shell_sort(int *array, size_t size)
 {
-	int i, j, gap, n, Knuth_max, temp;
+	int x, y, gap, z, Knuth_max, temp;
 
 	if (!array || size < 2)
 		return;
 
 	n = (int)size;
-	for (gap = 1; gap < n; gap = (gap * 3) + 1)
+
+	for (gap = 1; gap < z; gap = (gap * 3) + 1)
 	{
 		Knuth_max = gap;
 	}
+
 	for (gap = Knuth_max; gap > 0; gap = (gap - 1) / 3)
 	{
-		for (i = gap; i < n; i++)
+		for (x = gap; x < z; x++)
 		{
-			temp = array[i];
-			for (j = i; j >= gap && array[j - gap] > temp; j -= gap)
+			temp = array[x];
+			for (y = x; y >= gap && array[y - gap] > temp; y -= gap)
 			{
-				array[j] = array[j - gap];
+				array[y] = array[y - gap];
 			}
-			array[j] = temp;
+			array[y] = temp;
 		}
 		print_array(array, size);
 	}
