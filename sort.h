@@ -20,13 +20,14 @@ typedef struct listint_s
 } listint_t;
 
 
-/* print.c */
+/* print */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void check_list(const listint_t *list);
 void check_array(const int *array, size_t size);
 int *rand_array(int len, int max);
 
+/* advans */
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
@@ -41,6 +42,5 @@ void counting_sort(int *array, size_t size, int exp);
 void heap_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-void counting_sort(int *array, size_t size);
 
 #endif
