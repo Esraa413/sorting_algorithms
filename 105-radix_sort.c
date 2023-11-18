@@ -3,7 +3,8 @@
 #include "sort.h"
 
 /**
-* radix_sort - function that sorts an array of integers in ascending order using the Radix sort algorithm
+* radix_sort - function that sorts an array of integers,
+* in ascending order using the Radix sort algorithm
 * @array: int array to sort
 * @size: size of array
 */
@@ -24,7 +25,7 @@ void radix_sort(int *array, size_t size)
 		}
 		x++;
 	}
-	
+
 	for (lsd = 1; max_num / lsd > 0; lsd *= 10)
 	{
 		counting_sort(array, size, lsd);
@@ -47,7 +48,7 @@ void counting_sort(int *array, size_t size, int exp)
 
 	out_arr = malloc(sizeof(int) * size);
 	j = 0;
-	for (j < size)
+	while (j < size)
 	{
 		count_arr[(array[j] / exp) % 10]++;
 		j++;
@@ -64,10 +65,10 @@ void counting_sort(int *array, size_t size, int exp)
 		count_arr[(array[y] / exp) % 10]--;
 	}
 	k = 0;
-       while (k < size)
-       {
-	       array[k] = out_arr[k];
-	       k++;
-       }
-       free(out_arr);
-}	
+	while (k < size)
+	{
+		array[k] = out_arr[k];
+		k++;
+	}
+	free(out_arr);
+}
