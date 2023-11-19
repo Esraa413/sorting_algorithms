@@ -32,7 +32,7 @@ int partition(int *array, int low, int high)
 	int piv = array[high];
 	int x = low - 1, k = high + 1;
 	int tmp = array[x];
-	
+
 	while (1)
 	{
 		do {
