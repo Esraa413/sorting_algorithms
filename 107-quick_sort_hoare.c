@@ -45,7 +45,7 @@ int partition(int *array, int low, int high)
 
 		if (i >= k)
 			return (k);
-		array[x] = array[k];
+		array[i] = array[k];
 		array[k] = tmp;
 		print_array(array, (size_t)k + 1);
 	}
