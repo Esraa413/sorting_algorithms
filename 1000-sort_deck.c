@@ -4,7 +4,7 @@
  * sort_deck - sort deck of the card
  * @deck: doubly linked list
  */
- 
+
 void sort_deck(deck_node_t **deck)
 {
 	deck_node_t *curr;
@@ -38,9 +38,7 @@ void sort_deck(deck_node_t **deck)
 				one->next = three;
 			}
 			else
-			{
 				*deck = three;
-			}
 			two->prev = three;
 			curr = *deck;
 			continue;
@@ -56,14 +54,14 @@ void sort_deck(deck_node_t **deck)
  *
  * Return: Always 0
  */
- 
+
 int card_value(deck_node_t *node)
 {
 	char *val[13] = {"Ace", "2", "3", "4", "5", "6",
 		"7", "8", "9", "10", "Jack", "Queen", "King"};
 	char *kinds[4] = {"SPADE", "HEART", "CLUB", "DIAMOND"};
 	int x, ki_val = 0;
-	
+
 	x = 1;
 	while (x <= 13)
 	{
