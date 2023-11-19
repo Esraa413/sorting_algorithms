@@ -15,38 +15,38 @@ void quick_sort_hoare(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
-
 	quick_sort_recursive(array, 0, (int)size - 1);
 }
 
 /**
-* partition - Hoare partition scheme
-* @array: array to partition
-* @low: starting index of the partition
-* @high: ending index of the partition
-* Return: index of the partition pivot
+* partition - Hoare partition
+* @array: array to  the partition
+* @low: str index of partition
+* @high: ending index of partition
+* Return: Always 0
 */
+
 int partition(int *array, int low, int high)
 {
-	int pivot = array[high];
-	int i = low - 1, j = high + 1;
-	int tmp = array[i];
-
+	int piv = array[high];
+	int x = low - 1, k = high + 1;
+	int tmp = array[x];
+	
 	while (1)
 	{
 		do {
-			i++;
-		} while (array[i] < pivot);
+			x++;
+		} while (array[x] < piv);
 		
 		do {
-			j--;
-		} while (array[j] > pivot);
+			k--;
+		} while (array[k] > piv);
 		
-		if (i >= j)
-			return (j);
-		array[i] = array[j];
-		array[j] = tmp;
-		print_array(array, (size_t)j + 1);
+		if (x >= k)
+			return (k);
+		array[x] = array[k];
+		array[k] = tmp;
+		print_array(array, (size_t)k + 1);
 	}
 }
 
