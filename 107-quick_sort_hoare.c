@@ -1,69 +1,65 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "sort.h"
+#include <stdio.h>
 
 int partition(int *array, int low, int high);
 void quick_sort_recursive(int *array, int low, int high);
 
 /**
-* quick_sort_hoare - sort array using the Quick sort algorithm
-* @array: array of ints to sorted
-* @size: size of array
+* quick_sort_hoare - sorts an array using the Quick sort algorithm
+* @array: array of integers to be sorted
+* @size: size of the array
 */
-
 void quick_sort_hoare(int *array, size_t size)
 {
-	if (!array || size < 2)
-		return;
-	quick_sort_recursive(array, 0, (int)size - 1);
+if (!array || size < 2)
+return;
+
+quick_sort_recursive(array, 0, (int)size - 1);
 }
 
 /**
-* partition - Hoare partition
-* @array: array to  the partition
-* @low: str index of partition
-* @high: ending index of partition
-* Return: Always 0
+* partition - Hoare partition scheme
+* @array: array to partition
+* @low: starting index of the partition
+* @high: ending index of the partition
+* Return: index of the partition pivot
 */
-
 int partition(int *array, int low, int high)
 {
-	int piv = array[high];
-	int x = low - 1, k = high + 1;
-	int tmp = array[x];
+int pivot = array[high];
+int i = low - 1, j = high + 1;
+int tmp = array[i];
 
-	while (1)
-	{
-		do {
-			x++;
-		} while (array[x] < piv);
+while (1)
+{
+do {
+i++;
+} while (array[i] < pivot);
 
-		do {
-			k--;
-		} while (array[k] > piv);
+do {
+j--;
+} while (array[j] > pivot);
 
-		if (x >= k)
-			return (k);
-		array[x] = array[k];
-		array[k] = tmp;
-		print_array(array, (size_t)k + 1);
-	}
+if (i >= j)
+return (j);
+array[i] = array[j];
+array[j] = tmp;
+print_array(array, (size_t)j + 1);
+}
 }
 
 /**
-* quick_sort_recursive -  function to recursive perform Quick
-* @array: sort array
-* @low: str index of subarray
-* @high: ending index subarray
+* quick_sort_recursive - recursive function to perform Quick sort
+* @array: array to sort
+* @low: starting index of the subarray
+* @high: ending index of the subarray
 */
-
 void quick_sort_recursive(int *array, int low, int high)
 {
-	if (low < high)
-	{
-		int pivot_index = partition(array, low, high);
-
-		quick_sort_recursive(array, low, pivot_index);
-		quick_sort_recursive(array, pivot_index + 1, high);
-	}
+if (low < high)
+{
+int pivot_index = partition(array, low, high);
+quick_sort_recursive(array, low, pivot_index);
+quick_sort_recursive(array, pivot_index + 1, high);
+}
 }
