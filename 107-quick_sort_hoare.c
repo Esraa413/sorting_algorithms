@@ -30,22 +30,24 @@ void quick_sort_hoare(int *array, size_t size)
 int partition(int *array, int low, int high)
 {
 	int piv = array[high];
-	int i = low - 1, k = high + 1;
-	int tmp = array[i];
+	int x = low - 1, k = high + 1;
+	int tmp = array[x];
 
 	while (1)
 	{
 		do {
-			i++;
-		} while (array[i] < piv);
+			x++;
+		} while (array[x] < piv);
 
 		do {
 			k--;
 		} while (array[k] > piv);
 
-		if (i >= k)
+		if (x >= k)
+		{
 			return (k);
-		array[i] = array[k];
+		}
+		array[x] = array[k];
 		array[k] = tmp;
 		print_array(array, (size_t)k + 1);
 	}
@@ -63,7 +65,6 @@ void quick_sort_recursive(int *array, int low, int high)
 	if (low < high)
 	{
 		int pivot_index = partition(array, low, high);
-
 		quick_sort_recursive(array, low, pivot_index);
 		quick_sort_recursive(array, pivot_index + 1, high);
 	}
