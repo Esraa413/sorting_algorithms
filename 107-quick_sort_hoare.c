@@ -30,20 +30,20 @@ void quick_sort_hoare(int *array, size_t size)
 int partition(int *array, int low, int high)
 {
 	int piv = array[high];
-	int x = low - 1, k = high + 1;
-	int tmp = array[x];
+	int i = low - 1, k = high + 1;
+	int tmp = array[i];
 
 	while (1)
 	{
 		do {
-			x++;
-		} while (array[x] < piv);
+			i++;
+		} while (array[i] < piv);
 
 		do {
 			k--;
 		} while (array[k] > piv);
 
-		if (x >= k)
+		if (i >= k)
 			return (k);
 		array[x] = array[k];
 		array[k] = tmp;
