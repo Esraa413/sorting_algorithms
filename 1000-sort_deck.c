@@ -12,7 +12,7 @@ void sort_deck(deck_node_t **deck)
 	deck_node_t *one, *two, *three, *four;
 
 	length = list_len_deck(*deck);
-	if (!deck || !*deck || len < 2)
+	if (!deck || !*deck || length < 2)
 	{
 		return;
 	}
