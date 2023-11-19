@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "sort.h"
 
 int partition(int *array, int low, int high);
@@ -13,7 +15,7 @@ void quick_sort_hoare(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
-	
+
 	quick_sort_recursive(array, 0, (int)size - 1);
 }
 
@@ -36,16 +38,16 @@ int partition(int *array, int low, int high)
 		do {
 			x++;
 		} while (array[x] < piv);
-		
+
 		do {
 			k--;
 		} while (array[k] > piv);
-		
+
 		if (x >= k)
 		{
 			return (k);
 		}
-		
+
 		array[x] = array[k];
 		array[k] = tmp;
 		print_array(array, (size_t)k + 1);
@@ -64,6 +66,7 @@ void quick_sort_recursive(int *array, int low, int high)
 	if (low < high)
 	{
 		int pivot_index = partition(array, low, high);
+
 		quick_sort_recursive(array, low, pivot_index);
 		quick_sort_recursive(array, pivot_index + 1, high);
 	}
