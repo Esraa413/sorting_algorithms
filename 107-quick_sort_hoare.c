@@ -29,25 +29,26 @@ void quick_sort_hoare(int *array, size_t size)
 
 int partition(int *array, int low, int high)
 {
-	int piv = array[high];
-	int x = low - 1, k = high + 1;
-	int tmp = array[x];
+	int pivot = array[high];
+	int i = low - 1;
+	int j = high + 1;
+	int tmp = array[i];
 
 	while (1)
 	{
 		do {
-			x++;
-		} while (array[x] < piv);
+			i++;
+		} while (array[i] < pivot);
 
 		do {
-			k--;
-		} while (array[k] > piv);
+			j--;
+		} while (array[j] > pivot);
 
-		if (x >= k)
-			return (k);
-		array[x] = array[k];
-		array[k] = tmp;
-		print_array(array, (size_t)k + 1);
+		if (i >= j)
+			return (j);
+		array[i] = array[j];
+		array[j] = tmp;
+		print_array(array, (size_t)j + 1);
 	}
 }
 
