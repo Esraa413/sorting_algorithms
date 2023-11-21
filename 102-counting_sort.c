@@ -2,31 +2,30 @@
 
 /**
  * counting_sort - This sorts an array with the Counting sort algorithm
- * @array: array to sort
- * @size: size of the array
+ * @array: This is the array to sort
+ * @size: This represents size of the array
  */
-
 void counting_sort(int *array, size_t size)
 {
 	int *count_arr, *out_arr, max, num, a, l;
-	size_t x, y, m, n;
+	size_t i, j, m, n;
 
 	if (size < 2)
 		return;
 
 	max = array[0];
-	for (x = 1; x < size; x++)
-		if (array[x] > max)
-			max = array[x];
+	for (i = 1; i < size; i++)
+		if (array[i] > max)
+			max = array[i];
 
 	count_arr = malloc(sizeof(size_t) * (max + 1));
 	out_arr = malloc(sizeof(int) * size);
 
 	for (a = 0; a <= max; a++)
 		count_arr[a] = 0;
-	for (y = 0; y < size; y++)
+	for (j = 0; j < size; j++)
 	{
-		num = array[y];
+		num = array[j];
 		count_arr[num] += 1;
 	}
 	for (l = 1; l <= max; l++)
