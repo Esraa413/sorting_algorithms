@@ -6,16 +6,17 @@
  *
  * Return: length
  */
+
 size_t list_len(listint_t *list)
 {
-	size_t len = 0;
+	size_t l = 0;
 
 	while (list)
 	{
-		len++;
+		l++;
 		list = list->next;
 	}
-	return (len);
+	return (l);
 }
 
 /**
@@ -23,6 +24,7 @@ size_t list_len(listint_t *list)
  * @list: head of list
  * @pt: pointer to node
  */
+
 void switch_nodes(listint_t **list, listint_t **pt)
 {
 	listint_t *one, *two, *three, *four;
@@ -49,6 +51,7 @@ void switch_nodes(listint_t **list, listint_t **pt)
  * the cocktail sort algorithm
  * @list: pointer to list
  */
+
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *pt;
